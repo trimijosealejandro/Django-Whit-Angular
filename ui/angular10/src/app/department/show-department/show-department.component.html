@@ -1,0 +1,46 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-secondary m-2" data-backdrop="static" data-keyboard="false" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="addClick()" >
+  Añadir Departamento
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">{{ModalTitle}}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+            (click)="closeClick()"></button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <app-add-edit-dep  *ngIf="ActivateAddEditDepComp" [dep]="dep">
+            </app-add-edit-dep>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th>Departamento Id</th>
+      <th>Departamento Nombre</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="table-active" *ngFor="let dataItem of DepartmentList">
+      <td class="table-active">{{dataItem.DepartmentId}}</td>
+      <td>{{dataItem.DepartmentName}}</td>
+      <td>
+        <button type="button" class="btn btn-outline-danger" data-backdrop="static" data-keyboard="false" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="editClick(dataItem)"
+        >Editar</button>
+        <button type="button" class="btn btn-outline-danger"(click)="deleteClick(dataItem)">
+          Eliminar</button>
+      </td>
+  </tbody>
+</table>
