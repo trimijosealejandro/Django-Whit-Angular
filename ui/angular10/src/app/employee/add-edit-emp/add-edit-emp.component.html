@@ -1,1 +1,44 @@
-<p>add-edit-emp works!</p>
+<div class="d-flex flex-row bd-highlight">
+  <div class="form-froup row" style="width: 50%;">
+      <label for="exampleFormControlInput1" class="form-label">Nombre del Empleado
+
+      </label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="exampleFormControlInput1" [(ngModel)]="EmployeeName"  placeholder="Escriba el Nombre del Empleado">
+      </div>
+
+      <label for="exampleFormControlInput1" class="form-label">Departamento
+
+      </label>
+      <div class="col-sm-10">
+       <select class="form-control" [(ngModel)]="Department">
+         <option>--Select--</option>
+         <option  *ngFor="let depName of DepartmentList">
+           {{depName.DepartmentName}}
+         </option>
+       </select>
+      </div>
+
+      <label for="exampleFormControlInput1" class="form-label">Fecha del Empleado
+
+      </label>
+      <div class="col-sm-10">
+        <input type="date" [(ngModel)]="DateOfJoining">
+      </div>
+
+  </div>
+
+  <div class="ml-3 bd-highlight" style="width: 75%;" >
+    <img [src]=photoFilePath height="250px;" width="200px;">
+    <input type="file" (change)="uploadPhoto($event)" class="mt-2"/>
+  </div>
+</div>
+
+<button (click)="addEmployee()" *ngIf="emp.EmployeeId==0" class="btn btn-outline-danger">
+  Crear
+</button>
+
+<button (click)="updateEmployee()" *ngIf="emp.EmployeeId!=0" class="btn btn-outline-danger">
+  Actualizar
+</button>
+

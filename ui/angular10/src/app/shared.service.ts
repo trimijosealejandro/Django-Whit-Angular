@@ -9,7 +9,7 @@ import{Observable}from 'rxjs';
 export class SharedService {
 
   readonly APIUrl = "http://127.0.0.1:8000/";
-  readonly PhotoUrl ='http://127.0.0.1:8000/media/';
+  readonly PhotoUrl ="http://127.0.0.1:8000/media/";
 
   constructor(private _http:HttpClient) { }
 
@@ -49,11 +49,11 @@ export class SharedService {
 
   //File
   UploadPhoto(val:any){
-    return this._http.post(this.APIUrl+'SaveFile',val);
+    return this._http.post(this.APIUrl+'SaveFile/',val);
   }
 
   //Name of Department
-  getAllDepartamentName():Observable<any[]>{
-    return this._http.get<any[]>(this.APIUrl+'/department/');
+  getAllDepartmentName():Observable<any[]>{
+    return this._http.get<any[]>(this.APIUrl+'department/');
   }
 }
