@@ -25,8 +25,36 @@
 <table class="table table-dark">
   <thead>
     <tr>
-      <th>Departamento Id</th>
-      <th>Departamento Nombre</th>
+      <th>
+        <div class="d-flex flex-row">
+          <input [(ngModel)]="DepartmentIdFilter" class="form-control"
+          (keyup)="FilterFn()" placeholder="filter"
+          />
+          <button type="button" class="btn btn-dark"
+          (click)="sortResult('DepartmentId',true)">
+          ˄
+          </button>
+          <button type="button" class="btn btn-dark"
+          (click)="sortResult('DepartmentId',false)">
+          ˅
+          </button>
+        </div>
+        Departamento Id</th>
+      <th>
+        <div class="d-flex flex-row">
+          <input [(ngModel)]="DepartmentNameFilter" class="form-control"
+          (keyup)="FilterFn()" placeholder="filter"
+          />
+          <button type="button" class="btn btn-dark"
+          (click)="sortResult('DepartmentName',true)">
+          ˄
+          </button>
+          <button type="button" class="btn btn-dark"
+          (click)="sortResult('DepartmentName',false)">
+          ˅
+          </button>
+        </div>
+        Departamento Nombre</th>
       <th>Opciones</th>
     </tr>
   </thead>
